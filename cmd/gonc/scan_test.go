@@ -18,25 +18,25 @@ func TestScanConnection(t *testing.T) {
 			name:     "Success One Port",
 			port:     "8000",
 			lAddr:    "localhost:8000",
-			expected: "msg=\"connection to localhost 127.0.0.1:8000 [tcp]\\n\"\n",
+			expected: "msg=\"Connection to localhost 127.0.0.1:8000 [tcp]\\n\"\n",
 		},
 		{
 			name:     "Success Port Range",
 			port:     "8000-9000",
 			lAddr:    "localhost:8500",
-			expected: "msg=\"connection to localhost 127.0.0.1:8500 [tcp]\\n\"\n",
+			expected: "msg=\"Connection to localhost 127.0.0.1:8500 [tcp]\\n\"\n",
 		},
 		{
 			name:     "Failure Port Out Of Range",
 			port:     "8000-9000",
 			lAddr:    "localhost:9200",
-			expected: "msg=\"could not connect to localhost:8000-9000\\n\"\n",
+			expected: "msg=\"Could not connect to localhost:8000-9000\\n\"\n",
 		},
 		{
 			name:     "Starting Port Bigger Than Ending Port",
 			port:     "9000-8000",
 			lAddr:    "localhost:9500",
-			expected: "msg=\"invalid port range. Ensure start and end ports are valid integers and start <= end.\"\n",
+			expected: "msg=\"Invalid port range. Ensure start and end ports are valid integers and start <= end.\"\n",
 		},
 	}
 

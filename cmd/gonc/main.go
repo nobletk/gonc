@@ -52,7 +52,7 @@ func main() {
 
 	pflag.Parse()
 
-	if len(pflag.Args()) > 0 {
+	if len(pflag.Args()) > 1 {
 		fmt.Printf("Incorrect argument format!\n")
 		pflag.Usage()
 		os.Exit(2)
