@@ -1,0 +1,70 @@
+=== RUN   TestScanConnection
+=== RUN   TestScanConnection/Success_One_Port
+connection to localhost 127.0.0.1:8000 [tcp]
+=== RUN   TestScanConnection/Success_Port_Range
+connection to localhost 127.0.0.1:8500 [tcp]
+=== RUN   TestScanConnection/Failure_Port_Out_Of_Range
+could not connect to localhost:8000-9000
+=== RUN   TestScanConnection/Starting_Port_Bigger_Than_Ending_Port
+--- PASS: TestScanConnection (0.17s)
+    --- PASS: TestScanConnection/Success_One_Port (0.00s)
+    --- PASS: TestScanConnection/Success_Port_Range (0.06s)
+    --- PASS: TestScanConnection/Failure_Port_Out_Of_Range (0.11s)
+    --- PASS: TestScanConnection/Starting_Port_Bigger_Than_Ending_Port (0.00s)
+=== RUN   TestOsSignals
+=== RUN   TestOsSignals/Start_And_Shutdown_With_SigInt
+Listening on [any] 3002...
+sent 0, rcvd 0
+=== RUN   TestOsSignals/Start_And_Shutdown_With_SigTerm
+Listening on [any] 3003...
+sent 0, rcvd 0
+--- PASS: TestOsSignals (0.60s)
+    --- PASS: TestOsSignals/Start_And_Shutdown_With_SigInt (0.30s)
+    --- PASS: TestOsSignals/Start_And_Shutdown_With_SigTerm (0.30s)
+=== RUN   TestTCPMessaging
+Listening on [any] 3005...
+Connection to [127.0.0.1:3005] from [127.0.0.1:50876] [tcp]
+hello from the client
+Received 22 bytes from the socket
+00000000  68 65 6c 6c 6f 20 66 72  6f 6d 20 74 68 65 20 63  |hello from the c|
+00000010  6c 69 65 6e 74 0a                                 |lient.|
+Sent 22 bytes to the socket
+00000000  68 65 6c 6c 6f 20 66 72  6f 6d 20 74 68 65 20 73  |hello from the s|
+00000010  65 72 76 65 72 0a                                 |erver.|
+sent 22, rcvd 22
+--- PASS: TestTCPMessaging (0.40s)
+=== RUN   TestTwoTCPClients
+Listening on [any] 3009...
+Connection to [127.0.0.1:3009] from [127.0.0.1:46864] [tcp]
+sent 0, rcvd 0
+--- PASS: TestTwoTCPClients (0.80s)
+=== RUN   TestExecuteTCPCmd
+=== RUN   TestExecuteTCPCmd/Echo
+=== RUN   TestExecuteTCPCmd/List_Directory
+--- PASS: TestExecuteTCPCmd (0.11s)
+    --- PASS: TestExecuteTCPCmd/Echo (0.05s)
+    --- PASS: TestExecuteTCPCmd/List_Directory (0.05s)
+=== RUN   TestUDPMessaging
+Listening on [any] 7000 ...
+Connection to [[::]:7000] from [127.0.0.1:36678] [udp]
+Hello from the client
+Sent 22 bytes to the socket
+00000000  48 65 6c 6c 6f 20 66 72  6f 6d 20 74 68 65 20 73  |Hello from the s|
+00000010  65 72 76 65 72 0a                                 |erver.|
+2nd msg
+Received 8 bytes from the socket
+00000000  32 6e 64 20 6d 73 67 0a                           |2nd msg.|
+--- PASS: TestUDPMessaging (0.45s)
+=== RUN   TestUDPShutdownOnSendFail
+Listening on [any] 7001 ...
+Connection to [[::]:7001] from [127.0.0.1:47243] [udp]
+Hello from the client
+Connection refused:  sent 22, rcvd 22
+--- PASS: TestUDPShutdownOnSendFail (0.35s)
+=== RUN   TestTwoUDPClients
+Listening on [any] 7003 ...
+Connection to [[::]:7003] from [127.0.0.1:45336] [udp]
+Hello from the 1st client
+--- PASS: TestTwoUDPClients (0.80s)
+PASS
+ok  	github.com/nobletk/gonetcat/cmd/gonc	3.692s
