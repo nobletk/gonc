@@ -1,4 +1,4 @@
-module github.com/nobletk/gonetcat
+module github.com/nobletk/gonc
 
 go 1.22.1
 
